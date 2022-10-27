@@ -12,16 +12,19 @@ import java.io.IOException;
 public class CodiceFiscale 
 {
     public static void LoadComuni(String path, HashMap<String, String> comuni) {
-        BufferedReader br = new BufferedReader(new FileReader(path));
-
-        String line = "";
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(path));
+            String line = "";
         
 
-        br.readLine(); //skips first line
-        while ((line = br.readLine()) != null) {
-            String[] splitted = line.split(";");
+            br.readLine(); //skips first line
+            while ((line = br.readLine()) != null) {
+                String[] splitted = line.split(";");
 
             comuni.put(splitted[1].toUpperCase(), splitted[6]);
+        }
+        } catch (Exception e) {
+            System.exit(1);
         }
     }
     public static String getSurname(String s) {
@@ -113,44 +116,47 @@ public class CodiceFiscale
     }
 
     public static String getTown (String s) {
-        
+        return Comune.comuni.get(s);
     }
 
     public static void main(String args[])
     { 
         Scanner input = new Scanner(System.in);
-
-        HashMap<String, String> comuni = new HashMap<String, String>();
-        LoadComuni("../comuni.txt", comuni);
-        // System.out.print("Nome: ");
-        // String name = input.nextLine();
         
-        // System.out.print("Cognome: ");
-        // String surname = input.nextLine();
+        LoadComuni("src/comuni.txt", Comune.comuni);
+        System.out.print("Nome: ");
+        String name = input.nextLine();
         
-        // System.out.print("Data di nascita gg/mm/aa: ");
-        // String date = input.nextLine();
+        System.out.print("Cognome: ");
+        String surname = input.nextLine();
         
-        // System.out.print("Genere m/f: ");
-        // boolean genre;
-        // if (input.nextLine().equals("m")) {
-        //     genre = false;
-        // }
-        // else
-        // {
-        //     genre = true;
-        // }
+        System.out.print("Data di nascita gg/mm/aa: ");
+        String date = input.nextLine();
+        
+        System.out.print("Genere m/f: ");
+        boolean genre;
+        if (input.nextLine().equals("m")) {
+            genre = false;
+        }
+        else
+        {
+            genre = true;
+        }
 
         System.out.print("Comune di nascita: ");
         String town = input.nextLine();
 
         String codiceFiscale = "";
 
-        // codiceFiscale += getSurname(surname);
-        // codiceFiscale += getName(name);
-        // codiceFiscale += getDate(date, genre);
+        codiceFiscale += getSurname(surname);
+        codiceFiscale += getName(name);
+        codiceFiscale += getDate(date, genre);
         codiceFiscale += getTown(town);
         System.out.println(codiceFiscale);
     }
+}
+
+public class Comune {
+    public static HashMap<String, String> comuni = new HashMap<String, String>();
 }
 
