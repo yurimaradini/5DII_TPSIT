@@ -1,3 +1,5 @@
+//MARADINI YURI
+
 import java.util.Scanner;
 import java.util.Arrays;
 import java.util.ArrayList;
@@ -7,22 +9,20 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.IOException;
-//https://raw.githubusercontent.com/matteocontrini/comuni-json/master/comuni.json
 
 public class CodiceFiscale 
 {
     public static void LoadComuni(String path, HashMap<String, String> comuni) {
         try {
-            BufferedReader br = new BufferedReader(new FileReader(path));
+            BufferedReader br = new BufferedReader(new FileReader(path)); //comuni.txt
             String line = "";
         
 
             br.readLine(); //skips first line
             while ((line = br.readLine()) != null) {
                 String[] splitted = line.split(";");
-
-            comuni.put(splitted[1].toUpperCase(), splitted[6]);
-        }
+                comuni.put(splitted[1].toUpperCase(), splitted[6]);
+            }
         } catch (Exception e) {
             System.exit(1);
         }
@@ -120,10 +120,10 @@ public class CodiceFiscale
     }
 
     public static void main(String args[])
-    { 
+    {
         Scanner input = new Scanner(System.in);
         
-        LoadComuni("src/comuni.txt", Comune.comuni);
+        LoadComuni("comuni.txt", Comune.comuni);
         System.out.print("Nome: ");
         String name = input.nextLine();
         
@@ -151,7 +151,7 @@ public class CodiceFiscale
         codiceFiscale += getSurname(surname);
         codiceFiscale += getName(name);
         codiceFiscale += getDate(date, genre);
-        codiceFiscale += getTown(town);
+        codiceFiscale += getTown(town.toUpperCase());
         System.out.println(codiceFiscale);
     }
 }
