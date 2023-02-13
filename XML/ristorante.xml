@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<z:ristorante
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:z="www.microsoft.com/zzz"
+>
+    <articolo 
+    xsi:noNamespaceSchemaLocation="file:///C:/Users/6190137/Documents/GitHub/5DII_TPSIT/XML/schema.xsd"
+    >
+        <nome>Pollo</nome>
+        <prezzo>8.00</prezzo>
+        <descrizione>Pio Pio e Amedeo Amedeo</descrizione>
+        <calorie>banana</calorie>
+        <allergeni>
+            nessuno
+        </allergeni>
+    </articolo>
+
+    <articolo 
+    xmlns="http://www.w3schools.com/RedsDevils"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.w3schools.com/RedsDevils schema.xsd">
+        <nome>Cipolla</nome>
+        <prezzo>2.00</prezzo>
+        <descrizione>2 cose: LE CIPOLLE</descrizione>
+        <calorie>59</calorie>
+        <allergeni>
+            Bryan Cristante
+        </allergeni>
+    </articolo>
+
+    <articolo 
+    xmlns="http://www.w3schools.com/RedsDevils"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.w3schools.com/RedsDevils schema.xsd">
+        <nome>Aragosta Irachena</nome>
+        <prezzo>433.00</prezzo>
+        <descrizione>Sono ancora viva</descrizione>
+        <calorie>867</calorie>
+        <allergeni>
+            crostacei
+            iracheni
+        </allergeni>
+    </articolo>
+</z:ristorante>

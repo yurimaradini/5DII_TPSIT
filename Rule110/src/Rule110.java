@@ -40,7 +40,6 @@ public class Rule110 {
             
             for (int j = 0; j < firstLine.length(); j++) {
                 String upperLine = circular.substring(j, j+3);
-                System.out.println("upperLine: " + upperLine);
                 nextLine += Calc(upperLine);
             }
 
@@ -88,6 +87,16 @@ public class Rule110 {
     }
 
     public static String Draw(String str) {
-        return str;
+        StringBuilder strB = new StringBuilder(str);
+
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == '1') {
+                strB.setCharAt(i, '#');
+            }
+            else {
+                strB.setCharAt(i, ' ');
+            }
+        }
+        return strB.toString();
     }
 }

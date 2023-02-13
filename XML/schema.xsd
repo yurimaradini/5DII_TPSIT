@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<xs:schema targetNamespace="http://www.w3schools.com/RedsDevils"
+    elementFormDefault="qualified"
+    xmlns="http://www.w3schools.com/RedsDevils schema.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:element name="articolo">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="nome" type="xs:string" use="required"/>
+      <xs:element name="prezzo" type="xs:decimal" use="required"/>
+      <xs:element name="descrizione" type="xs:string" use="required"/>
+      <xs:element name="calorie" type="xs:integer" use="required">
+        <xs:simpleType>
+            <xs:pattern value="[0-9][0-9][0-9]"/>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="allergeni" type="xs:string" default="nessuno" use="required"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+</xs:schema>
